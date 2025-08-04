@@ -6,7 +6,9 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 dotenv.config();
-console.log(process.env.)
+console.log("my very secret key is", process.env.MY_VERY_SECRET_KEY);
+
+
 
 app.get("/", function(req, res){
     res.send("this is my root route hun")
