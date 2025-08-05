@@ -15,13 +15,16 @@ async function handleSubmit(event) {
   const formValues = Object.fromEntries(data);
   console.log(formValues);
 
-  const serverResponse = await fetch("http://localhost:8222/digitalcameras", {
-    method: "POST",
-    body: JSON.stringify(formValues),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const serverResponse = await fetch(
+    "https://week-9-assignment-server.onrender.com/digitalcameras",
+    {
+      method: "POST",
+      body: JSON.stringify(formValues),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   console.log(serverResponse);
   const parsedResponse = await serverResponse.json();
