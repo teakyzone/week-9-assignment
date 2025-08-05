@@ -30,12 +30,39 @@ console.log("Is this working");
 
 app.get("/digitalcamerasquery", async function (req, res) {
   const digitalCamerasQuery = await db.query(
-    `SELECT * FROM digitalcameras WHERE release_year = ${request.query.year}`
+    `SELECT * FROM digitalcameras WHERE release_year = ${req.query.year}`
   );
+  res.json(digitalCamerasQuery.rows);
 });
 
-res.json(digitalCamerasQuery.rows);
+app.post("/digitalcameras", async function (req, res) {
+  console.log(
+    "The server - app.post /digitalcameras endpoint - req.body info:",
+    req.body
+  );
 
-app.listen(8222, function () {
-  console.log("server is running on port: 8222");
+  console.log(req.body.userTitle);
+
+  const databaseResponse = await db.query(
+    `
+    INSERT INTO digitalcameras 
+    (camera_brand, camera_series, camera_model, release_year, img_source, img_alt) 
+    VALUES 
+    ($1, $2, $3, $4, $5, $6)`,
+    [
+      req.body.cameraBrand,
+      req.body.cameraSeries,
+      req.body.cameraModel,
+      req.body.releaseYear,
+      req.body.imgSource,
+      req.body.imgAlt,
+    ]
+  ); // Read about 'Parameter Placeholders' on the Week 09 Moodle Database session. This helps to keep our database safe
+
+  console.log("What the DB gives back to the server", databaseResponse);
+  res.send(databaseResponse);
+});
+
+app.listen(PORT, function () {
+  console.log(`server is running on ${PORT}`);
 });
