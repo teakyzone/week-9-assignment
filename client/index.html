@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,62 +10,78 @@
   </head>
   <body>
     <h1>Digicam form and results</h1>
-    <form id="user-digitalcamera-entry-form">
-      <label for="camera_brand">Camera Brand
-      <input type="text"
-      placeholder="Canon/Nikon/Sony etc"
-      name="camerBrand"
-      id="camera_brand"
-      required/>
+    <form id="user_digital_camera_entry_form">
+      <label for="camera_brand"
+        >Camera Brand
+        <input
+          type="text"
+          placeholder="Canon/Nikon/Sony etc"
+          name="cameraBrand"
+          id="camera_brand"
+          required
+        />
       </label>
 
-      <label for="camera_series">Camera Series
-      <input type="text"
-      placeholder="Powershot/Cybershot/Coolpix etc"
-      name="camerSeries"
-      id="camera_series"
-      required/>
+      <label for="camera_series"
+        >Camera Series
+        <input
+          type="text"
+          placeholder="Powershot/Cybershot/Coolpix etc"
+          name="cameraSeries"
+          id="camera_series"
+          required
+        />
       </label>
 
-      <label for="camera_model">Camera Model
-      <input type="text"
-      placeholder="G7X Mark II/SX740/S9000 etc"
-      name="camerModel"
-      id="camera_model"
-      required/>
+      <label for="camera_model"
+        >Camera Model
+        <input
+          type="text"
+          placeholder="G7X Mark II/SX740/S9000 etc"
+          name="cameraModel"
+          id="camera_model"
+          required
+        />
       </label>
 
-      <label for="img_source">Your Image Source (full url, with extension)
-      <input type="text"
-      placeholder="Your Image Source"
-      name="imgSource"
-      id="img_source"
-      required/>
+      <label for="img_source"
+        >Your Image Source (full url, with extension)
+        <input
+          type="text"
+          placeholder="Your Image Source"
+          name="imgSource"
+          id="img_source"
+          required
+        />
       </label>
 
-      <label for="img_alt">Your Image Alt Text 
-      <input type="text"
-      placeholder="Your Image Alt"
-      name="imgAlt"
-      id="img_alt"
-      required/>
+      <label for="img_alt"
+        >Your Image Alt Text
+        <input
+          type="text"
+          placeholder="Your Image Alt"
+          name="imgAlt"
+          id="img_alt"
+          required
+        />
       </label>
 
-      <label for="release_year">Release Year
-      <input type="number"
-      min="0" 
-      max="9999"
-      placeholder="Your Digital Camera Release Year"
-      name="releaseYear"
-      id="release_year"
-      required/>
+      <label for="release_year"
+        >Release Year
+        <input
+          type="number"
+          min="0"
+          max="9999"
+          placeholder="Your Digital Camera Release Year"
+          name="releaseYear"
+          id="release_year"
+          required
+        />
       </label>
 
       <button type="sunmit">Submit Your Digital Camera</button>
-
     </form>
-    
-    <section id="digital_camera_container"> </section>
 
+    <section id="digital_camera_container"></section>
   </body>
 </html>
