@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(205, 241, 255);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  margin-left: 1rem;
+}
