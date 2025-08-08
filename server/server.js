@@ -15,9 +15,7 @@ const db = new pg.Pool({
 
 console.log("my very secret key is", process.env.MY_VERY_SECRET_KEY);
 
-app.get("/", function (req, res) {
-  res.send("this is my root route hun");
-});
+//app.get("/", function (req, res) {res.send("something");});
 
 app.get("/digitalcameras", async function (req, res) {
   const allDigitalCameras = await db.query(`SELECT * FROM digital_cameras`);
