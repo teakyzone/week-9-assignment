@@ -15,7 +15,9 @@ const db = new pg.Pool({
 
 console.log("my very secret key is", process.env.MY_VERY_SECRET_KEY);
 
-//app.get("/", function (req, res) {res.send("something");});
+app.get("/", function (req, res) {
+  res.send("heyyy here is my route");
+});
 
 app.get("/digitalcameras", async function (req, res) {
   const allDigitalCameras = await db.query(`SELECT * FROM digital_cameras`);
@@ -33,7 +35,24 @@ app.get("/digitalcamerasquery", async function (req, res) {
 });
 
 app.post("/digitalcameras", function (req, res) {
-  console.log(request.body);
+  console.log(req.body);
+
+  console.log(req.body.cameraBrand);
+
+  db.query(
+    `INSERT INTO digital_cameras 
+    (camera_brand, camera_series, camera_model, img_source, img_alt, release_year) 
+    VALUES (
+    $1, $2, $3, $4, $5, $6)`,
+    [
+      req.body.cameraBrand,
+      req.body.cameraSeries,
+      req.body.cameraModel,
+      req.body.imgSource,
+      req.body.imgAlt,
+      req.body.releaseYear,
+    ]
+  );
 });
 
 app.listen(PORT, function () {

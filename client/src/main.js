@@ -16,14 +16,17 @@ async function handleSubmit(event) {
   const formValues = Object.fromEntries(data);
   console.log(formValues);
 
-  const serverResponse = await fetch("http://localhost:8222/digitalcameras", {
-    //   https://week-9-assignment-server.onrender.com/digitalcameras
-    method: "POST",
-    body: JSON.stringify(formValues),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const serverResponse = await fetch(
+    "https://week-9-assignment-server.onrender.com/digitalcameras",
+    {
+      //    http://localhost:8222/digitalcameras
+      method: "POST",
+      body: JSON.stringify(formValues),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 }
 
 const digitalCameraContainer = document.getElementById(
@@ -31,7 +34,9 @@ const digitalCameraContainer = document.getElementById(
 );
 
 async function getAllDigitalCameras() {
-  const response = await fetch("https://week-9-assignment-server.onrender.com");
+  const response = await fetch(
+    "https://week-9-assignment-server.onrender.com/digitalcameras"
+  );
   const digitalCameraData = await response.json();
   console.log("The digital camera data is:", digitalCameraData);
 }
