@@ -10,13 +10,14 @@ userDigitalCameraForm.addEventListener("submit", handleSubmit);
 
 async function handleSubmit(event) {
   event.preventDefault();
+  console.log("form submitted");
 
   const data = new FormData(userDigitalCameraForm);
   const formValues = Object.fromEntries(data);
-  ///console.log(formValues);
+  console.log(formValues);
 
   const serverResponse = await fetch("http://localhost:8222/digitalcameras", {
-    // https://week-9-assignment-server.onrender.com/digitalcameras
+    //   https://week-9-assignment-server.onrender.com/digitalcameras
     method: "POST",
     body: JSON.stringify(formValues),
     headers: {

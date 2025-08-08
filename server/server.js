@@ -20,17 +20,22 @@ app.get("/", function (req, res) {
 });
 
 app.get("/digitalcameras", async function (req, res) {
-  console.log("the query on the /digitalcameras route", req.query);
+  const allDigitalCameras = await db.query(`SELECT * FROM digital_cameras`);
+  console.log(allDigitalCameras.rows);
+  res.json(allDigitalCameras.rows);
+});
 
-  if (req.query.year) {
-    const allDigitalCamerasQuery = await db.query(
-      `SELECT * FROM digital_cameras WHERE release_year = ${req.query.year}`
-    );
-    res.json(allDigitalCamerasQuery.rows);
-  } else {
-    const allDigitalCameras = await db.query(`SELECT * FROM digital_cameras`);
-    res.json(allDigitalCameras.rows);
-  }
+app.get("/digitalcamerasquery", async function (req, res) {
+  const queriedDigitalCameras = await db.query(
+    `SELECT * FROM digital_cameras WHERE release_year = ${req.query.year}`
+  );
+
+  res.json(queriedDigitalCameras.rows);
+  console.log(req.query.year);
+});
+
+app.post("/digitalcameras", function (req, res) {
+  console.log(request.body);
 });
 
 app.listen(PORT, function () {
