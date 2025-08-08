@@ -31,9 +31,7 @@ const digitalCameraContainer = document.getElementById(
 );
 
 async function getAllDigitalCameras() {
-  const response = await fetch(
-    "https://week-9-assignment-server.onrender.com/digitalcameras"
-  );
+  const response = await fetch("https://week-9-assignment-server.onrender.com");
   const digitalCameraData = await response.json();
   console.log("The digital camera data is:", digitalCameraData);
 }
